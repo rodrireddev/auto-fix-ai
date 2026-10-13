@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Auto-Fixer AI</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='9' fill='%23c8623f'/><path d='M9 17l5 5 9-12' stroke='white' stroke-width='3.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>" />
+  <style>
+    /* Design tokens: heredan a través del shadow DOM de todos los componentes */
+    :root {
+      --bg: #f6f5f2;
+      --surface: #ffffff;
+      --surface-2: #f2f1ed;
+      --surface-3: #e9e7e1;
+      --border: #e4e1da;
+      --border-strong: #d3cfc6;
+      --text: #1d1c1a;
+      --text-2: #4a4843;
+      --muted: #77736b;
+      --accent: #c2593a;
+      --accent-hover: #ad4c30;
+      --accent-ink: #ffffff;
+      --accent-soft: #f8e7df;
+      --ok: #23774a;
+      --ok-soft: #e0f1e7;
+      --warn: #8f5d00;
+      --warn-soft: #fbefd3;
+      --err: #b3362b;
+      --err-soft: #f9e2df;
+      --info: #2c5a9c;
+      --info-soft: #e2eaf7;
+      /* Colores de datos (status palette: success / critical / warning) */
+      --chart-good: #0ca30c;
+      --chart-critical: #d03b3b;
+      --chart-warning: #fab219;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --shadow-sm: 0 1px 2px rgba(29, 28, 26, 0.05);
+      --shadow: 0 1px 2px rgba(29, 28, 26, 0.04), 0 6px 20px rgba(29, 28, 26, 0.05);
+      --shadow-lg: 0 24px 64px rgba(29, 28, 26, 0.22);
+      --font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      --mono: ui-monospace, 'SF Mono', 'Cascadia Code', Menlo, Consolas, monospace;
+      color-scheme: light;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme='light']) {
+        --bg: #141413;
+        --surface: #1c1b1a;
+        --surface-2: #242321;
+        --surface-3: #2e2d2a;
+        --border: #302e2b;
+        --border-strong: #423f3a;
+        --text: #edebe6;
+        --text-2: #c9c5bd;
+        --muted: #9a958c;
+        --accent: #e07f5c;
+        --accent-hover: #ea9273;
+        --accent-ink: #1b120e;
+        --accent-soft: #3a251c;
+        --ok: #6cc893;
+        --ok-soft: #1a3224;
+        --warn: #e8b85c;
+        --warn-soft: #362b13;
+        --err: #f08e83;
+        --err-soft: #3d1f1c;
+        --info: #8bb2ec;
+        --info-soft: #1b293d;
+        --shadow-sm: none;
+        --shadow: none;
+        --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.6);
+        color-scheme: dark;
+      }
+    }
+
+    :root[data-theme='dark'] {
+      --bg: #141413;
+      --surface: #1c1b1a;
+      --surface-2: #242321;
+      --surface-3: #2e2d2a;
+      --border: #302e2b;
+      --border-strong: #423f3a;
+      --text: #edebe6;
+      --text-2: #c9c5bd;
+      --muted: #9a958c;
+      --accent: #e07f5c;
+      --accent-hover: #ea9273;
+      --accent-ink: #1b120e;
+      --accent-soft: #3a251c;
+      --ok: #6cc893;
+      --ok-soft: #1a3224;
+      --warn: #e8b85c;
+      --warn-soft: #362b13;
+      --err: #f08e83;
+      --err-soft: #3d1f1c;
+      --info: #8bb2ec;
+      --info-soft: #1b293d;
+      --shadow-sm: none;
+      --shadow: none;
+      --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.6);
+      color-scheme: dark;
+    }
+
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font: 14px/1.5 var(--font);
+      -webkit-font-smoothing: antialiased;
+    }
+    afx-app:not(:defined) { display: block; min-height: 100vh; }
+  </style>
+</head>
+<body>
+  <afx-app></afx-app>
+  <script type="module" src="build/app.js"></script>
+</body>
+</html>

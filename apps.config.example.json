@@ -1,0 +1,16 @@
+{
+  "apps": [
+    {
+      "id": "checkout-api",
+      "name": "Checkout API",
+      "ingestKey": "cambia-esta-key-larga-y-random",
+      "context": "API REST en NestJS que procesa pagos con Stripe y crea órdenes en Postgres. Tráfico normal: ~50 req/s. Es normal ver 401 por tokens vencidos y algún 404. NO es normal: 5xx, timeouts contra Postgres, errores de Stripe que no sean card_declined, ni latencias > 2s.",
+      "repository": "github.com/mi-org/checkout-api",
+      "routine": {
+        "url": "https://api.anthropic.com/v1/claude_code/routines/trig_XXXXXXXX/fire",
+        "token": "sk-ant-oat01-xxxxx"
+      },
+      "minSeverityToFix": "high"
+    }
+  ]
+}
